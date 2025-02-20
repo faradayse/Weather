@@ -1,4 +1,4 @@
-const API_KEY = '59ce35330ff352d5fb875a00247300c0'; // Replace with your actual OpenWeatherMap key—no red if quoted right
+const API_KEY = window.API_KEY || '59ce35330ff352d5fb875a00247300c0'; // Replace with your actual OpenWeatherMap key—no red if quoted right
 const form = document.getElementById('weatherForm');
 const locationInput = document.getElementById('locationInput');
 const loading = document.getElementById('loading');
