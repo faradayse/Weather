@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App (OpenWeatherMap)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center p-4">
+    <div class="bg-white rounded-lg shadow-lg p-6 w-full max-w-md">
+        <form id="weatherForm" class="mb-6">
+            <div class="flex gap-2">
+                <div class="relative flex-1">
+                    <input 
+                        type="text" 
+                        id="locationInput" 
+                        placeholder="Enter city or zip code"
+                        class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        list="cityList"
+                    >
+                    <datalist id="cityList">
+                        <option value="New York">
+                        <option value="London">
+                        <option value="Tokyo">
+                        <option value="Paris">
+                        <option value="Sydney">
+                        <option value="Toronto">
+                        <option value="Berlin">
+                        <option value="Moscow">
+                    </datalist>
+                </div>
+                <button 
+                    type="submit"
+                    class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+                >
+                    Get Weather
+                </button>
+            </div>
+        </form>
+
+        <div id="recentSearches" class="mb-4 flex flex-wrap gap-2"></div>
+
+        <div id="loading" class="hidden text-center mb-4">
+            <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-500 mx-auto"></div>
+            <p class="text-gray-600 mt-2">Loading weather data...</p>
+        </div>
+
+        <div id="weatherDisplay" class="hidden">
+            <h2 id="location" class="text-2xl font-bold mb-2"></h2>
+            <div class="flex items-center justify-between mb-4">
+                <div>
+                    <p id="temperature" class="text-4xl font-semibold"></p>
+                    <p id="conditions" class="text-gray-600"></p>
+                    <img id="weatherIcon" class="w-12 h-12" alt="Weather Icon">
+                    <p id="feelsLike" class="text-gray-600"></p>
+                </div>
+                <button 
+                    id="unitToggle" 
+                    class="bg-gray-200 px-3 py-1 rounded hover:bg-gray-300"
+                >
+                    Switch to °F
+                </button>
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+                <div>
+                    <p class="text-gray-600">Humidity</p>
+                    <p id="humidity" class="font-semibold"></p>
+                </div>
+                <div>
+                    <p class="text-gray-600">Wind Speed</p>
+                    <p id="wind" class="font-semibold"></p>
+                </div>
+            </div>
+        </div>
+
+        <div id="errorDisplay" class="hidden text-red-500 text-center"></div>
+    </div>
+    <script>window.API_KEY = '59ce35330ff352d5fb875a00247300c0';</script> 
+    <script src="weather.js"></script>
+</body>
+</html>
